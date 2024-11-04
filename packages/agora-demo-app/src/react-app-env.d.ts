@@ -12,7 +12,9 @@ declare const DEMO_VERSION: string;
 interface Window {
   __launchRegion: string;
   __launchLanguage: string;
+  __launchRoomUuid: string;
   __launchRoomName: string;
+  __launchUserUuid: string;
   __launchUserName: string;
   __launchRoleType: string;
   __launchRoomType: string;
