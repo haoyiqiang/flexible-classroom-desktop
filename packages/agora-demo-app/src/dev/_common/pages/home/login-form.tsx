@@ -120,10 +120,10 @@ export const LoginForm: FC<{
           if (!values.roomUuid) {
             return onError('roomUuid', transI18n('home_form_placeholder_room_id'));
           }
-          if (values.roomUuid.length != 6) {
+          if (values.roomUuid.length != 9) {
             return onError(
               'roomUuid',
-              transI18n('home_form_error_room_id_limit', { min: 6}),
+              transI18n('home_form_error_room_id_limit', { min: 9}),
             );
           }
           break;
