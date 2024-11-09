@@ -120,10 +120,10 @@ export const LoginForm: FC<{
           if (!values.roomUuid) {
             return onError('roomUuid', transI18n('home_form_placeholder_room_id'));
           }
-          if (values.roomUuid.length != 9) {
+          if (values.roomUuid.length <6) {
             return onError(
               'roomUuid',
-              transI18n('home_form_error_room_id_limit', { min: 9}),
+              transI18n('home_form_error_room_id_limit', { min: 6}),
             );
           }
           break;
@@ -131,7 +131,7 @@ export const LoginForm: FC<{
           if (!values.userUuid) {
             return onError('userUuid', transI18n('home_form_placeholder_user_id'));
           }
-          if (values.userUuid.length != 6) {
+          if (values.userUuid.length < 6) {
             return onError(
               'userUuid',
               transI18n('home_form_error_user_id_limit', { min: 6 }),

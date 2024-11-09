@@ -148,23 +148,29 @@ export const HomePage: FC<{ scenes: { text: string; value: SceneType }[] }> = ({
         }, new Map<string, string[]>())
   
         // 等待房间创建完成，立即调用接口会报错
-        setTimeout(() => {
+
+        setTimeout(async () => {
           for(let [chatUuid,userUuids] of group){
             console.log(`## chat group: ${chatUuid}, users: ${userUuid}`)
   
-            roomApi.createImGroup({
+            await roomApi.createImGroup({
               appId,
               roomUuid,
               chatUuid,
               userUuids
             })
-        }
-        }, 1000)
+            console.log(`## launch config: `, config)
+            globalStore.setLaunchConfig(config);
+            history.push('/launch');
+          }
+        }, 3000)
+      }else{
+        console.log(`## launch config: `, config)
+        globalStore.setLaunchConfig(config);
+        history.push('/launch');
       }
       
-      console.log(`## launch config: `, config)
-      globalStore.setLaunchConfig(config);
-      history.push('/launch');
+
     } catch (e) {
       console.log(">>>>>>>e", e)
       globalStore.addToast({
