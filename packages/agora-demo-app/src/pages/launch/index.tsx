@@ -1,5 +1,5 @@
 import { GlobalStoreContext, UserStoreContext } from '@app/stores';
-import type { AgoraEduClassroomEvent, EduRoleTypeEnum } from 'agora-edu-core';
+import { EduRoomTypeEnum, type AgoraEduClassroomEvent, type EduRoleTypeEnum } from 'agora-edu-core';
 import isEmpty from 'lodash/isEmpty';
 import { observer } from 'mobx-react';
 import { useContext, useEffect, useRef } from 'react';
@@ -54,16 +54,15 @@ export const AgoraClassroomApp = () => {
   const history = useHistory();
   const launchOption = homeStore.launchOption;
   const appRef = useRef<HTMLDivElement | null>(null);
-
   const { ready: widgetsReady, widgets } = useClassroomWidgets([
     'AgoraCountdown',
-    'AgoraHXChatWidget',
     'AgoraPolling',
     'AgoraSelector',
     'FcrBoardWidget',
     'FcrStreamMediaPlayerWidget',
     'FcrWatermarkWidget',
     'FcrWebviewWidget',
+    launchOption.roomType == EduRoomTypeEnum.RoomBigClass?'AgoraHXChatGroupWidget':'AgoraHXChatWidget',
   ]);
 
   const { ready: sdkReady, sdk } = useEduSdk();
