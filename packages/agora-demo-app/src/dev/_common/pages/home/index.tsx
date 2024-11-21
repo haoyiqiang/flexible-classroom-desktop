@@ -29,7 +29,7 @@ export const HomePage: FC<{ scenes: { text: string; value: SceneType }[] }> = ({
   const [loading, setLoading] = useState<boolean>(false);
 
   const t = useI18n();
-
+  console.log(">>>>>>>>>>>>>>>>>>scene")
   const handleSubmit = async ({
     roleType,
     sceneType,
