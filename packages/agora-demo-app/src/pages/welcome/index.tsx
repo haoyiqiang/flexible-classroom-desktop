@@ -152,7 +152,7 @@ export const Welcome = observer(() => {
             <span className="icon">
               <img src={CreateClassIcon} alt="create class" />
             </span>
-            <span className="text">编程猫IM分组</span>
+            <span className="text">大班IM分组</span>
           </div>
         </div>
         {!isLoading && !isLogin && <UserAgreement ref={agreementRef} />}
