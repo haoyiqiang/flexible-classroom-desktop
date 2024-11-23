@@ -184,11 +184,11 @@ export const FcrUISceneApp = () => {
   const { ready: widgetsReady, widgets } = useSceneWidgets([
     'FcrBoardWidget',
     'FcrPolling',
-    'AgoraChatroomWidget',
     'FcrWebviewWidget',
     'FcrStreamMediaPlayerWidget',
     'FcrCountdownWidget',
     'FcrPopupQuizWidget',
+    launchOption.roomType == EduRoomTypeEnum.RoomBigClass?'AgoraChatroomWidget':'AgoraChatroomGroupWidget',
   ]);
 
   const { ready: sdkReady, sdk } = useFcrUIScene();
