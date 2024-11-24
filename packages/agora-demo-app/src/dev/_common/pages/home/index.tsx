@@ -3,7 +3,7 @@ import { GlobalStoreContext } from '@app/stores';
 import { RtmRole, RtmTokenBuilder } from 'agora-access-token';
 import md5 from 'js-md5';
 import { FC, Fragment, useContext, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { REACT_APP_AGORA_APP_SDK_DOMAIN } from '@app/utils/env';
 import { v4 as uuidv4 } from 'uuid';
 import { LoginForm } from './login-form';
@@ -15,6 +15,7 @@ import { SettingsButton } from './setting-button';
 import { GlobalLaunchOption } from '@app/stores/global';
 import { isElectron } from 'agora-rte-sdk/lib/core/utils/utils';
 import { FcrRoomType, SceneType } from '@app/type';
+import { isH5Browser } from '@app/utils';
 
 const REACT_APP_AGORA_APP_ID = process.env.REACT_APP_AGORA_APP_ID;
 const REACT_APP_AGORA_APP_CERTIFICATE = process.env.REACT_APP_AGORA_APP_CERTIFICATE;
@@ -29,7 +30,6 @@ export const HomePage: FC<{ scenes: { text: string; value: SceneType }[] }> = ({
   const [loading, setLoading] = useState<boolean>(false);
 
   const t = useI18n();
-  console.log(">>>>>>>>>>>>>>>>>>scene")
   const handleSubmit = async ({
     roleType,
     sceneType,
@@ -76,7 +76,6 @@ export const HomePage: FC<{ scenes: { text: string; value: SceneType }[] }> = ({
         : `${location.origin}${location.pathname}?roomName=${roomName}&roomType=${sceneType}&region=${region}&language=${language}&roleType=2#/share`;
 
       console.log('## get rtm Token from demo server', token);
-
       const config: GlobalLaunchOption = {
         appId,
         sdkDomain,
@@ -96,7 +95,7 @@ export const HomePage: FC<{ scenes: { text: string; value: SceneType }[] }> = ({
         shareUrl,
         recordUrl: `https://solutions-apaas.agora.io/apaas/record/dev/2.8.21/record_page.html`,
         sceneType: sceneType,
-        returnToPath: '/flex',
+        returnToPath: location.hash.replace("#", ""),
       };
 
       config.appId = REACT_APP_AGORA_APP_ID || config.appId;

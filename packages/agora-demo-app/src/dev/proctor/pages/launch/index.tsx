@@ -6,6 +6,7 @@ import { useContext, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useProctorSdk } from '@app/hooks/useProctorSdk';
 import { useProctorWidgets } from '@app/hooks/useProctorWidgets';
+import { isH5Browser } from '@app/utils';
 
 export const assetURLs = {
   // virtual background assets
@@ -28,6 +29,7 @@ export const LaunchPage = observer(() => {
 
   const { ready: widgetsReady, widgets } = useProctorWidgets(['FcrWebviewWidget']);
   const { ready: sdkReady, sdk } = useProctorSdk();
+  console.log(">>>>>>>>>>>>>>>>>>>>proctor h5", isH5Browser())
 
   useEffect(() => {
     if (isEmpty(launchOption)) {

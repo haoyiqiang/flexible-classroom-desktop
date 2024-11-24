@@ -9,6 +9,7 @@ import { useSceneWidgets } from '@app/hooks/useSceneWidgets';
 import { useFcrUIScene } from '@app/hooks/useSceneSdk';
 import { coursewareList } from './courseware-list';
 import {EduRoomTypeEnum} from 'agora-edu-core'
+import { isH5Browser } from '@app/utils';
 
 export const assetURLs = {
   // virtual background assets
@@ -39,6 +40,7 @@ export const LaunchPage = observer(() => {
   ]);
 
   const { ready: sdkReady, sdk } = useFcrUIScene();
+  console.log(">>>>>>>>>>>>>>>>>>>>scene h5", isH5Browser())
 
   useEffect(() => {
     if (isEmpty(launchOption)) {

@@ -41,6 +41,7 @@ export const LaunchPage = observer(() => {
   ]);
 
   const { ready: sdkReady, sdk } = useEduSdk();
+  console.log(">>>>>>>>>>>>>>>>>>>>classroom h5", isH5Browser())
 
   useEffect(() => {
     if (isEmpty(launchOption)) {
