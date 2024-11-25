@@ -52,7 +52,7 @@
       "main": "build/index.js"
     },
     "productName": "AgoraFlexibleClassroom",
-    "appId": "io.agora.education",
+    "appId": "io.kevin.EducationTest",
     "files": [
       "build/**/*"
     ],
@@ -64,7 +64,7 @@
       ],
       "icon": "electron/icons/favicon.png",
       "entitlements": "electron/entitlements.mac.plist",
-      "category": "io.agora.Education",
+      "category": "io.kevin.EducationTest",
       "hardenedRuntime": true,
       "extendInfo": {
         "NSMicrophoneUsageDescription": "AgoraEdu Classroom acquire your microphone permission",
