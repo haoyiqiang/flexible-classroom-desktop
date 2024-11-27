@@ -33,7 +33,7 @@ export const LaunchPage = observer(() => {
     window.location.reload();
     return null;
   }
-  useQuitConfirm();
+  // useQuitConfirm();
 
   const { sceneType } = launchOption;
 
@@ -210,7 +210,6 @@ export const FcrUISceneApp = () => {
           themes: homeStore.launchOption.themes,
         }),
       );
-      console.log(">>>>>>>>>>>>>>>>>>>>h5")
       const unmount = sdk.launch(
         appRef.current,
         {

@@ -29,7 +29,6 @@ export const LaunchPage = observer(() => {
 
   const { ready: widgetsReady, widgets } = useProctorWidgets(['FcrWebviewWidget']);
   const { ready: sdkReady, sdk } = useProctorSdk();
-  console.log(">>>>>>>>>>>>>>>>>>>>proctor h5", isH5Browser())
 
   useEffect(() => {
     if (isEmpty(launchOption)) {

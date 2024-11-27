@@ -158,10 +158,10 @@ export const HomePage: FC<{ scenes: { text: string; value: SceneType }[] }> = ({
               chatUuid,
               userUuids
             })
-            console.log(`## launch config: `, config)
-            globalStore.setLaunchConfig(config);
-            history.push('/launch');
           }
+          console.log(`## launch config: `, config)
+          globalStore.setLaunchConfig(config);
+          history.push('/launch');
         }, 3000)
       }else{
         console.log(`## launch config: `, config)

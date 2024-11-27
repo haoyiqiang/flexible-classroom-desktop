@@ -40,7 +40,6 @@ export const LaunchPage = observer(() => {
   ]);
 
   const { ready: sdkReady, sdk } = useFcrUIScene();
-  console.log(">>>>>>>>>>>>>>>>>>>>scene h5", isH5Browser())
 
   useEffect(() => {
     if (isEmpty(launchOption)) {
